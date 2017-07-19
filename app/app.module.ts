@@ -7,14 +7,13 @@ import {ContactComponent} from './contact/contact.component';
 import {appRouting} from './app.routing';
 import {NotFoundComponent} from './not-found/not-found.component';
 
-import {AboutModule} from './about/about.module';
 
 @NgModule({
   imports:[
     BrowserModule,
     FormsModule,
-    appRouting,
-    AboutModule],
+    appRouting
+  ],
   declarations:[
     AppComponent,
     HomeComponent,

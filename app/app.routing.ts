@@ -5,11 +5,15 @@ import {ContactComponent} from './contact/contact.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 
 const appRoutes: Routes=[
-  //{path:'', component:HomeComponent},
+  {path:'', component:HomeComponent},
+  // {
+  //   path:'',
+  //   redirectTo:'/about',
+  //   pathMatch:'full'
+  // },
   {
-    path:'',
-    redirectTo:'/about',
-    pathMatch:'full'
+    path:'about',
+    loadChildren:'app/about/about.module#AboutModule' 
   },
   {path:'contact', component:ContactComponent},
   {path:'**', component:NotFoundComponent}
