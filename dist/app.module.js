@@ -11,12 +11,10 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
-var about_component_1 = require("./about/about.component");
 var contact_component_1 = require("./contact/contact.component");
 var app_routing_1 = require("./app.routing");
 var not_found_component_1 = require("./not-found/not-found.component");
-var about_user_component_1 = require("./about/about-user.component");
-var user_service_1 = require("./shared/services/user.service");
+var about_module_1 = require("./about/about.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,17 +23,16 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                app_routing_1.appRouting
+                app_routing_1.appRouting,
+                about_module_1.AboutModule
             ],
             declarations: [
                 app_component_1.AppComponent,
                 home_component_1.HomeComponent,
-                about_component_1.AboutComponent,
                 contact_component_1.ContactComponent,
-                not_found_component_1.NotFoundComponent,
-                about_user_component_1.AboutUserComponent
+                not_found_component_1.NotFoundComponent
             ],
-            providers: [user_service_1.UserService],
+            providers: [],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
