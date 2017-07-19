@@ -1,26 +1,32 @@
 
 <header>
   <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      
-      <div class="navbar-header">
-        <a href="#" class="navbar-brand">My routing app</a>
-      </div>
+  <div class="container-fluid">
 
-      <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-
+    <div class="navbar-header">
+      <a routerLink="/" routerLinkActive="active" 
+        [routerLinkActiveOptions]="{ exact: true }" class="navbar-brand">
+        My Routing App
+      </a>
     </div>
+
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active" >About</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" >Contact</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+    </ul>
+
+  </div>
   </nav>
 </header>
 
 <main>
-  <router-outlet></router-outlet>
-</main>
 
-<!-- <home-page></home-page>
-<about-page></about-page>
-<contact-page></contact-page> -->
+  <router-outlet></router-outlet>
+
+</main>
