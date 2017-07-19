@@ -1,26 +1,32 @@
-import {Routes, RouterModule} from '@angular/router';
-import {AboutUserComponent} from './about-user.component';
-import {AboutComponent} from './about.component';
-import {ModuleWithProviders} from '@angular/core'
-import {AboutSectionComponent} from './about-section.component';
-const aboutRoutes:Routes=[
-  {
-    path:'',
-    component:AboutSectionComponent,
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AboutComponent } from './about.component';
+import { AboutUserComponent } from './about-user.component';
+import { AboutSectionComponent } from './about-section.component';
+import { AboutUsersResolve } from './about-resolve.service';
+import { AboutUserResolve } from './about-user-resolve.service';
 
-    children:[
+const aboutRoutes: Routes = [
+  {
+    path: '',
+    component: AboutSectionComponent,
+    children: [
       {
-        path:'',
-        component:AboutComponent
+        path: '',
+        component: AboutComponent,
+        resolve: {
+          users: AboutUsersResolve
+        }
       },
       {
-        path:':username',
-        component:AboutUserComponent
+        path: ':username',
+        component: AboutUserComponent,
+        resolve: {
+          user: AboutUserResolve
+        }
       }
     ]
   }
-  // {path:'about', component:AboutComponent},
-  // {path:'about/:username', component:AboutUserComponent},
- ];
+];
 
-export const aboutRouting:ModuleWithProviders=RouterModule.forChild(aboutRoutes);
+export const aboutRouting: ModuleWithProviders = RouterModule.forChild(aboutRoutes);

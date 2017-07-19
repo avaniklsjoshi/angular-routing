@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../shared/models/user';
-import {UserService} from '../shared/services/user.service';
-
+import {ActivatedRoute} from '@angular/router';
 @Component({
   selector:'about-page',
   styles:[`
@@ -20,7 +19,7 @@ import {UserService} from '../shared/services/user.service';
   `],
   template:`
   
-    <div class="row" *ngIf="users">
+    <div class="row">
       <div class="col-sm-4" *ngFor="let user of users">
         <div class="profile-card" [routerLink]="['/about', user.username]">
           <img [src]="user.avatar" class="img-responsive img-circle" >
@@ -34,9 +33,14 @@ import {UserService} from '../shared/services/user.service';
 })
 export class AboutComponent implements OnInit{
   users:User[];
-  constructor(private service:UserService){}
+  constructor(
+    private route:ActivatedRoute){}
 
   ngOnInit(){
-    this.service.getUsers().then(users=>this.users=users);
+    // this.service.getUsers().then(users=>this.users=users);
+  
+    this.route.data.forEach((data:{users:User[]})=>{
+      this.users=data.users
+    });  
   }
 }
