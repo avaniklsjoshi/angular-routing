@@ -8,7 +8,7 @@ import {ContactComponent} from './contact/contact.component';
 import {appRouting} from './app.routing';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {AboutUserComponent} from './about/about-user.component';
-
+import {UserService} from './shared/services/user.service';
 @NgModule({
   imports:[
     BrowserModule,
@@ -21,6 +21,7 @@ import {AboutUserComponent} from './about/about-user.component';
     ContactComponent,
     NotFoundComponent,
     AboutUserComponent],
+  providers:[UserService],
   bootstrap:[AppComponent]
 })
 

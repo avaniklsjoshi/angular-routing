@@ -16,6 +16,7 @@ var contact_component_1 = require("./contact/contact.component");
 var app_routing_1 = require("./app.routing");
 var not_found_component_1 = require("./not-found/not-found.component");
 var about_user_component_1 = require("./about/about-user.component");
+var user_service_1 = require("./shared/services/user.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,6 +35,7 @@ var AppModule = (function () {
                 not_found_component_1.NotFoundComponent,
                 about_user_component_1.AboutUserComponent
             ],
+            providers: [user_service_1.UserService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
