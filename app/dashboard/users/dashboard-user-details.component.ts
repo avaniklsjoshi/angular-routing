@@ -62,6 +62,13 @@ export class DashboardUserDetailsComponent implements OnInit{
     this.user.name=this.editName;
     this.router.navigate(['/dashboard/users']);
   }
+  canDeactivate(){
+    console.log('nav away');
 
+    if(this.user.name!==this.editName)
+      return window.confirm('Discard changes?');
+
+    return true;
+  }
 
 }

@@ -15,6 +15,8 @@ var contact_component_1 = require("./contact/contact.component");
 var app_routing_1 = require("./app.routing");
 var not_found_component_1 = require("./not-found/not-found.component");
 var dashboard_module_1 = require("./dashboard/dashboard.module");
+var auth_guard_service_1 = require("./shared/guards/auth-guard.service");
+var can_deactivate_guard_service_1 = require("./shared/guards/can-deactivate-guard.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,7 +34,10 @@ var AppModule = (function () {
                 contact_component_1.ContactComponent,
                 not_found_component_1.NotFoundComponent
             ],
-            providers: [],
+            providers: [
+                auth_guard_service_1.AuthGuard,
+                can_deactivate_guard_service_1.CanDeactivateGuard
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

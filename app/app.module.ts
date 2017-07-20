@@ -7,6 +7,9 @@ import {ContactComponent} from './contact/contact.component';
 import {appRouting} from './app.routing';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {DashboardModule} from './dashboard/dashboard.module';
+import {AuthGuard} from './shared/guards/auth-guard.service';
+import {CanDeactivateGuard} from './shared/guards/can-deactivate-guard.service';
+
 
 @NgModule({
   imports:[
@@ -20,7 +23,9 @@ import {DashboardModule} from './dashboard/dashboard.module';
     HomeComponent,
     ContactComponent,
     NotFoundComponent],
-  providers:[],
+  providers:[
+    AuthGuard,
+    CanDeactivateGuard],
   bootstrap:[AppComponent]
 })
 
